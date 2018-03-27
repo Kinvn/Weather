@@ -1,0 +1,64 @@
+ext {
+
+    android = [
+            buildToolsVersion: '27.0.3',
+            supportVersion   : '27.0.2',
+            minSdkVersion    : 19,
+            compileSdkVersion: 27,
+            targetSdkVersion : 27,
+            applicationId    : "com.kinvn.weather",
+            versionCode      : 1,
+            versionName      : "0.0.1",
+            resConfigs       : "zh",
+            minifyEnabled    : false,
+            shrinkResources  : false,
+            debuggable       : true,
+    ]
+
+    // Android Support
+    androidSupport = [
+            appcompat : 'com.android.support:appcompat-v7:27.1.0',
+            design    : 'com.android.support:design:27.1.0',
+            cardView  : 'com.android.support:cardview-v7:27.1.0',
+            support   : 'com.android.support:support-v4:27.1.0',
+            constraint: 'com.android.support.constraint:constraint-layout:1.0.2'
+    ]
+
+    //Rx Java2
+    rxJava2 = [
+            rxJava               : 'io.reactivex.rxjava2:rxjava:2.1.1',
+            rxAndroid            : 'io.reactivex.rxjava2:rxandroid:2.0.1',
+            rxPermissions        : 'com.tbruyelle.rxpermissions2:rxpermissions:0.9.4',
+            rxLifecycle          : 'com.trello.rxlifecycle2:rxlifecycle:2.0.1',
+            rxLifecycleAndroid   : 'com.trello.rxlifecycle2:rxlifecycle-android:2.0.1',
+            rxLifecycleComponents: 'com.trello.rxlifecycle2:rxlifecycle-components:2.0.1'
+    ]
+
+    // Network
+    network = [
+            gson         : 'com.google.code.gson:gson:2.8.0',
+            regrofit2    : 'com.squareup.retrofit2:retrofit:2.2.0',
+            convertGson  : 'com.squareup.retrofit2:converter-gson:2.2.0',
+            rxJavaAdapter: 'com.squareup.retrofit2:adapter-rxjava2:2.2.0',
+            okHttp       : 'com.squareup.okhttp3:okhttp:3.7.0',
+            glide        : 'com.github.bumptech.glide:glide:3.7.0'
+    ]
+
+    //Tool
+    tool = [
+            logger             : 'com.orhanobut:logger:2.2.0',
+            butterKnifeCompiler: 'com.jakewharton:butterknife-compiler:8.5.1',
+            butterKnife        : 'com.jakewharton:butterknife:8.5.1'
+    ]
+
+    weather = [
+            name : "WeatherKey",
+            value: "282f3846df6b41178e4a2218ae083ea7"
+    ]
+
+    fir = [
+            name : "FirToken",
+            value: "7db041d0c3013b63e4bed2a554f02d85"
+    ]
+
+}
