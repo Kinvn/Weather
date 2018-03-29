@@ -1,6 +1,6 @@
-package com.kinvn.weather.weather;
+package com.kinvn.weather.weather.component;
 
-import com.kinvn.weather.weather.module.domain.WeatherAPI;
+import com.kinvn.weather.weather.model.WeatherAPI;
 
 import io.reactivex.Observable;
 import retrofit2.http.GET;
@@ -11,8 +11,10 @@ import retrofit2.http.Query;
  */
 
 public interface ApiInterface {
-    String BASE_URL = "https://free-api.heweather.com/v5/";
+    String BASE_URL = "https://free-api.heweather.com/s6/";
 
     @GET
     Observable<WeatherAPI> weatherAPI(@Query("city") String city, @Query("key") String key);
+
+    // TODO: 2018/3/29 Flowable
 }

@@ -1,20 +1,20 @@
-package com.kinvn.weather.weather.module.domain;
+package com.kinvn.weather.weather.model;
 
 import java.util.List;
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("com.robohorse.robopojogenerator")
-public class HeWeather5Item{
+public class HeWeather6Item{
 
 	@SerializedName("now")
 	private Now now;
 
-	@SerializedName("suggestion")
-	private Suggestion suggestion;
+	@SerializedName("update")
+	private Update update;
 
-	@SerializedName("aqi")
-	private Aqi aqi;
+	@SerializedName("hourly")
+	private List<HourlyItem> hourly;
 
 	@SerializedName("basic")
 	private Basic basic;
@@ -22,9 +22,9 @@ public class HeWeather5Item{
 	@SerializedName("daily_forecast")
 	private List<DailyForecastItem> dailyForecast;
 
-	@SerializedName("hourly_forecast")
-	private List<HourlyForecastItem> hourlyForecast;
-
 	@SerializedName("status")
 	private String status;
+
+	@SerializedName("lifestyle")
+	private List<LifestyleItem> lifestyle;
 }

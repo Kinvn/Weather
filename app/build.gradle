@@ -2,6 +2,7 @@ apply plugin: 'com.android.application'
 
 android {
     def app = rootProject.ext.android
+
     compileSdkVersion app.compileSdkVersion
     buildToolsVersion app.buildToolsVersion
 
@@ -55,6 +56,7 @@ dependencies {
     implementation network.rxJavaAdapter
     implementation network.okHttp
     implementation network.glide
+    implementation 'com.facebook.stetho:stetho-okhttp3:1.5.0'
 
     def tool = rootProject.ext.tool
     implementation tool.butterKnife
@@ -71,7 +73,6 @@ dependencies {
 
 //    compile 'com.github.xcc3641:watcher:1.0'
 //    compile 'com.facebook.stetho:stetho:1.5.0'
-//    compile 'com.facebook.stetho:stetho-okhttp3:1.5.0'
 
     //share
     implementation 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:1.1.6'

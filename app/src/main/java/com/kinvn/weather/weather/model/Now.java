@@ -1,4 +1,4 @@
-package com.kinvn.weather.weather.module.domain;
+package com.kinvn.weather.weather.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
@@ -21,12 +21,27 @@ public class Now{
 	@SerializedName("fl")
 	private String fl;
 
+	@SerializedName("wind_sc")
+	private String windSc;
+
+	@SerializedName("wind_dir")
+	private String windDir;
+
+	@SerializedName("wind_spd")
+	private String windSpd;
+
+	@SerializedName("cloud")
+	private String cloud;
+
+	@SerializedName("wind_deg")
+	private String windDeg;
+
 	@SerializedName("tmp")
 	private String tmp;
 
-	@SerializedName("cond")
-	private Cond cond;
+	@SerializedName("cond_txt")
+	private String condTxt;
 
-	@SerializedName("wind")
-	private Wind wind;
+	@SerializedName("cond_code")
+	private String condCode;
 }

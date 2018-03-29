@@ -1,4 +1,4 @@
-package com.kinvn.weather.weather.module.domain;
+package com.kinvn.weather.weather.model;
 
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;

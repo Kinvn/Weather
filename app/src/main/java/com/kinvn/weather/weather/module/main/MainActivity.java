@@ -1,4 +1,4 @@
-package com.kinvn.weather.weather;
+package com.kinvn.weather.weather.module.main;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.widget.ImageView;
 
+import com.kinvn.weather.weather.R;
 import com.kinvn.weather.weather.base.BaseActivity;
 import com.orhanobut.logger.Logger;
 

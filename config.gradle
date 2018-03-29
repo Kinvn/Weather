@@ -53,7 +53,7 @@ ext {
 
     weather = [
             name : "WeatherKey",
-            value: "282f3846df6b41178e4a2218ae083ea7"
+            value: "a5a67bd28cf945cea5416a97aa02ffa6"
     ]
 
     fir = [

@@ -1,12 +1,12 @@
-package com.kinvn.weather.weather.module.domain;
+package com.kinvn.weather.weather.model;
 
 import java.util.List;
 import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
 @Generated("com.robohorse.robopojogenerator")
-public class Weather{
+public class WeatherAPI{
 
-	@SerializedName("HeWeather5")
-	private List<HeWeather5Item> heWeather5;
+	@SerializedName("HeWeather6")
+	private List<HeWeather6Item> heWeather6;
 }
