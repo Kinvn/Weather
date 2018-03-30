@@ -1,9 +1,7 @@
 package com.kinvn.weather.weather.model;
 
-import javax.annotation.Generated;
 import com.google.gson.annotations.SerializedName;
 
-@Generated("com.robohorse.robopojogenerator")
 public class LifestyleItem{
 
 	@SerializedName("txt")
@@ -14,4 +12,28 @@ public class LifestyleItem{
 
 	@SerializedName("type")
 	private String type;
+
+	public String getTxt() {
+		return txt;
+	}
+
+	public void setTxt(String txt) {
+		this.txt = txt;
+	}
+
+	public String getBrf() {
+		return brf;
+	}
+
+	public void setBrf(String brf) {
+		this.brf = brf;
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
 }

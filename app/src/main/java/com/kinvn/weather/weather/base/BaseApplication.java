@@ -40,7 +40,7 @@ public class BaseApplication extends Application {
         return android.os.Environment.getExternalStorageState().equals(Environment.MEDIA_MOUNTED);
     }
 
-    public static Context getAPPContext() {
+    public static Context getAppContext() {
         return APP_CONTEXT;
     }
 

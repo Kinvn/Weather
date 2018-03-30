@@ -5,5 +5,5 @@ package com.kinvn.weather.weather.base;
  */
 
 public interface BasePresenter<T> {
-    void start();
+
 }

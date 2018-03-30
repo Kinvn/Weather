@@ -29,6 +29,11 @@ android {
             debuggable app.debuggable
         }
     }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 dependencies {
@@ -40,6 +45,7 @@ dependencies {
     implementation androidSupport.cardView
     implementation androidSupport.support
     implementation androidSupport.constraint
+    implementation "com.android.support:design:27.1.0"
 
     def rxJava2 = rootProject.ext.rxJava2
     implementation rxJava2.rxJava
@@ -63,13 +69,13 @@ dependencies {
     annotationProcessor tool.butterKnifeCompiler
     implementation tool.logger
 
-    compile 'org.glassfish:javax.annotation:10.0-b28'
+    implementation 'me.tatarka:gradle-retrolambda:3.7.0'
 
     // assist
-    debugCompile 'com.github.markzhai:blockcanary-android:1.5.0'
-    releaseCompile 'com.github.markzhai:blockcanary-no-op:1.5.0'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.1'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
+    debugImplementation 'com.github.markzhai:blockcanary-android:1.5.0'
+    releaseImplementation 'com.github.markzhai:blockcanary-no-op:1.5.0'
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:1.5.1'
+    releaseImplementation 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.1'
 
 //    compile 'com.github.xcc3641:watcher:1.0'
 //    compile 'com.facebook.stetho:stetho:1.5.0'

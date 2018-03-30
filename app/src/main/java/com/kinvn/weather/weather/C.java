@@ -11,5 +11,7 @@ import java.io.File;
  */
 
 public class C {
+    public static String KEY = BuildConfig.WeatherKey;
+
     public static String NET_CACHE_DIR = BaseApplication.getAppCacheDir() + File.separator + "NetCache";
 }
