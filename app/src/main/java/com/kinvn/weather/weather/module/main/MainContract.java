@@ -10,11 +10,31 @@ import com.kinvn.weather.weather.base.BaseView;
  */
 
 interface MainContract {
-    interface View extends BaseView<Presenter> {
+    interface MainView extends BaseView<MainPresenter> {
+        void updateGraphView();
+    }
+
+    interface LocalView extends BaseView<LocalPresenter> {
 
     }
 
-    interface Presenter extends BasePresenter {
+    interface CityView extends BaseView<CityPresenter> {
+
+    }
+
+    interface MainPresenter extends BasePresenter{
+
+    }
+
+    interface LocalPresenter extends BasePresenter {
+        //根据经纬度查询所在城市
+        void queryCity(int x, int y);
+
+        //根据城市查询天气情况
+        void queryWeather(String city);
+    }
+
+    interface CityPresenter extends BasePresenter{
 
     }
 }

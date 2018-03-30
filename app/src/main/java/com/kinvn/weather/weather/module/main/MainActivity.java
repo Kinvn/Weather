@@ -28,7 +28,7 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
 
-    private MainContract.Presenter mPresenter;
+    private MainContract.LocalPresenter mLocalPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

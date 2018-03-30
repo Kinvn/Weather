@@ -69,33 +69,12 @@
             android:layout_height="match_parent"
             app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-            <LinearLayout
+            <android.support.v4.view.ViewPager
+                android:id="@+id/view_pager"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="match_parent">
 
-                <include layout="@layout/item_card" />
-
-                <include layout="@layout/item_card" />
-
-                <include layout="@layout/item_card" />
-
-                <include layout="@layout/item_card" />
-
-                <include layout="@layout/item_card" />
-
-                <include layout="@layout/item_card" />
-
-                <include layout="@layout/item_card" />
-
-                <include layout="@layout/item_card" />
-
-                <include layout="@layout/item_card" />
-
-                <include layout="@layout/item_card" />
-
-                <include layout="@layout/item_card" />
-            </LinearLayout>
+            </android.support.v4.view.ViewPager>
 
         </android.support.v4.widget.NestedScrollView>
 
@@ -106,9 +85,6 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:layout_gravity="start"
-        android:fitsSystemWindows="true">
-
-    </android.support.design.widget.NavigationView>
-
+        android:fitsSystemWindows="true"/>
 
 </android.support.v4.widget.DrawerLayout>
