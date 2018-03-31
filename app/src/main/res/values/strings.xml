@@ -1,13 +1,19 @@
 <resources>
     <string name="app_name">Weather</string>
+    <string name="ok">好的</string>
 
-    <!--Toast-->
+    <!--toast-->
     <string name="network_error">当前网络不佳</string>
 
-    <!--Main-->
+    <!--main-->
     <string name="current_city">深圳</string>
     <string name="other_city">其他城市</string>
 
     <string name="navigation_drawer_open">navigation drawer open</string>
     <string name="navigation_drawer_close">navigation drawer close</string>
+
+    <!--message-->
+    <string name="explanation_about_request_location">请给予定位权限用于获取您当前城市的天气</string>
+    <string name="get_location_request_denied">获取定位权限失败，您可以在权限列表手动开启</string>
+    <string name="get_location_failed">获取定位信息失败</string>
 </resources>

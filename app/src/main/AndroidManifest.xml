@@ -3,6 +3,10 @@
     package="com.kinvn.weather.weather">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission-sdk-23 android:name="android.permission.ACCESS_FINE_LOCATION" />
+
     <application
         android:name=".base.BaseApplication"
         android:allowBackup="true"
@@ -12,11 +16,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".module.main.MainActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar">
+            android:name=".module.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -11,6 +11,8 @@ import java.io.File;
  */
 
 public class C {
+    public static final int MY_FINE_LOCATION_REQUEST_CODE = 1;
+
     public static String KEY = BuildConfig.WeatherKey;
 
     public static String NET_CACHE_DIR = BaseApplication.getAppCacheDir() + File.separator + "NetCache";

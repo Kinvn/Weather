@@ -5,5 +5,4 @@ package com.kinvn.weather.weather.base;
  */
 
 public interface BaseView<T> {
-    void setPresenter(T presenter);
 }

@@ -6,6 +6,6 @@ import com.kinvn.weather.weather.base.BaseFragment;
  * Created by Kinvn on 2018/3/30.
  */
 
-public class MainFragment extends BaseFragment {
+public class LocalFragment extends BaseFragment {
 
 }
