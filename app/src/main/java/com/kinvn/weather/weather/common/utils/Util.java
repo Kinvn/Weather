@@ -1,4 +1,4 @@
-package com.kinvn.weather.weather;
+package com.kinvn.weather.weather.common.utils;
 
 import android.Manifest;
 import android.app.Activity;
@@ -11,6 +11,7 @@ import android.os.Build;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 
+import com.kinvn.weather.weather.R;
 import com.kinvn.weather.weather.module.main.MainActivity;
 
 /**

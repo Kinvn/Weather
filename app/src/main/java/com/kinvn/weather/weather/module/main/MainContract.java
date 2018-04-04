@@ -23,8 +23,8 @@ interface MainContract {
         //根据经纬度查询所在城市
         void getCurrentCity();
 
-        //根据城市查询天气情况
-        void queryWeather(String city);
+        //根据位置查询天气情况
+        void queryWeather(String location);
 
     }
 }

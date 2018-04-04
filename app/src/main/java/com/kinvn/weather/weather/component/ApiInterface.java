@@ -13,8 +13,8 @@ import retrofit2.http.Query;
 public interface ApiInterface {
     String BASE_URL = "https://free-api.heweather.com/s6/";
 
-    @GET
-    Observable<WeatherAPI> weatherAPI(@Query("city") String city, @Query("key") String key);
+    @GET("weather")
+    Observable<WeatherAPI> getWeatherByLocation(@Query("location") String location, @Query("key") String key);
 
     // TODO: 2018/3/29 Flowable
 }

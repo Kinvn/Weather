@@ -7,4 +7,8 @@ package com.kinvn.weather.weather.module.main.fragment;
  */
 
 public class LocalPresenter implements LocalConstract.Presenter {
+    @Override
+    public void destroy() {
+
+    }
 }

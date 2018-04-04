@@ -8,15 +8,13 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 
-import com.kinvn.weather.weather.C;
+import com.kinvn.weather.weather.common.C;
 import com.kinvn.weather.weather.R;
-import com.kinvn.weather.weather.ToastUtil;
+import com.kinvn.weather.weather.common.utils.ToastUtil;
 import com.kinvn.weather.weather.base.BaseActivity;
-import com.orhanobut.logger.Logger;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

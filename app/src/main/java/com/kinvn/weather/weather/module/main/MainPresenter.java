@@ -7,15 +7,20 @@ import android.location.Location;
 import android.location.LocationManager;
 import android.util.Log;
 
-import com.kinvn.weather.weather.C;
+import com.kinvn.weather.weather.common.C;
 import com.kinvn.weather.weather.R;
-import com.kinvn.weather.weather.ToastUtil;
-import com.kinvn.weather.weather.Util;
+import com.kinvn.weather.weather.component.SharedPreferencesManager;
+import com.kinvn.weather.weather.common.utils.ToastUtil;
+import com.kinvn.weather.weather.common.utils.Util;
+import com.kinvn.weather.weather.component.RetrofitSingleton;
+import com.kinvn.weather.weather.model.HeWeather;
 import com.orhanobut.logger.Logger;
 
 import java.util.List;
 
-import static com.kinvn.weather.weather.Util.checkNotNull;
+import io.reactivex.disposables.CompositeDisposable;
+
+import static com.kinvn.weather.weather.common.utils.Util.checkNotNull;
 
 /**
  * Created by Kinvn on 2018/3/30.
@@ -26,10 +31,13 @@ import static com.kinvn.weather.weather.Util.checkNotNull;
 public class MainPresenter implements MainContract.Presenter {
     private MainContract.View mView;
     private Context mContext;
+    private CompositeDisposable mDisposables;
+    private HeWeather mWeather = new HeWeather();
 
     public MainPresenter(Context context, MainContract.View view) {
         mContext = context;
         mView = checkNotNull(view);
+        mDisposables = new CompositeDisposable();
     }
 
     @Override
@@ -60,14 +68,41 @@ public class MainPresenter implements MainContract.Presenter {
             }
         }
         if (bestLocation != null) {
-            Logger.d(bestLocation.getLongitude() + "," + bestLocation.getLatitude());
+            queryWeather(String.valueOf(bestLocation.getLongitude()) + String.valueOf(bestLocation.getLatitude()));
         } else {
-            ToastUtil.showShort("获取位置信息失败");
+            ToastUtil.showShort(R.string.get_location_failed);
+            queryWeather(SharedPreferencesManager.getInstance().getCity());
         }
     }
 
     @Override
-    public void queryWeather(String city) {
+    public void queryWeather(String location) {
+        RetrofitSingleton.getInstance().fetchWeatherByLocation(location)
+                .doOnSubscribe(disposable -> mDisposables.add(disposable))
+                .doOnError(throwable -> {
+                    Logger.e(throwable.getMessage());
+                })
+                .onErrorReturn(throwable -> {
+                    HeWeather weather = new HeWeather();
+                    weather.setStatus(throwable.getMessage());
+                    return weather;
+                })
+                .doOnNext(weather -> {
+                    if (weather.getStatus().equals("ok")) {
+                        SharedPreferencesManager.getInstance().setCity(weather.getBasic().getLocation());
+                        Logger.d(weather.getHourly().get(0).getTmp());
+                    } else {
+                        ToastUtil.showShort("Error: " + weather.getStatus());
+                    }
+                })
+                .doOnComplete(() -> {
 
+                })
+                .subscribe();
+    }
+
+    @Override
+    public void destroy() {
+        mDisposables.clear();
     }
 }

@@ -10,7 +10,7 @@
 
     <style name="CustomDialog" parent="Theme.AppCompat.Dialog.Alert">
         <item name="android:background">@android:color/white</item>
-        <item name="android:textColorPrimary">@android:color/black</item>
-        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorPrimary</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
     </style>
 </resources>

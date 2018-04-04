@@ -5,5 +5,6 @@ package com.kinvn.weather.weather.base;
  */
 
 public interface BasePresenter<T> {
-
+    //释放资源
+    void destroy();
 }

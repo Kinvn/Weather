@@ -15,5 +15,5 @@
     <!--message-->
     <string name="explanation_about_request_location">请给予定位权限用于获取您当前城市的天气</string>
     <string name="get_location_request_denied">获取定位权限失败，您可以在权限列表手动开启</string>
-    <string name="get_location_failed">获取定位信息失败</string>
+    <string name="get_location_failed">获取定位信息失败，加载默认地址天气</string>
 </resources>

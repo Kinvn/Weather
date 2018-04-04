@@ -7,4 +7,9 @@ package com.kinvn.weather.weather.module.main.fragment;
  */
 
 public class CityPresenter implements CityConstract.Presenter {
+
+    @Override
+    public void destroy() {
+
+    }
 }

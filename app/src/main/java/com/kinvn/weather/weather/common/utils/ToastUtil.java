@@ -1,4 +1,4 @@
-package com.kinvn.weather.weather;
+package com.kinvn.weather.weather.common.utils;
 
 import android.widget.Toast;
 
@@ -13,6 +13,10 @@ import com.kinvn.weather.weather.base.BaseApplication;
 public class ToastUtil {
     public static void showShort(String msg) {
         Toast.makeText(BaseApplication.getAppContext(), msg, Toast.LENGTH_SHORT).show();
+    }
+
+    public static void showShort(int res) {
+        Toast.makeText(BaseApplication.getAppContext(), res, Toast.LENGTH_SHORT).show();
     }
 
     public static void showLong(String msg) {
