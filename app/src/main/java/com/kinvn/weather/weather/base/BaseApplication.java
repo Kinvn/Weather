@@ -6,6 +6,10 @@ import android.content.Context;
 import android.os.Environment;
 
 import com.kinvn.weather.weather.BuildConfig;
+import com.kinvn.weather.weather.R;
+import com.orhanobut.logger.Logger;
+
+import io.reactivex.plugins.RxJavaPlugins;
 
 /**
  * Created by Kinvn on 2018/3/29.

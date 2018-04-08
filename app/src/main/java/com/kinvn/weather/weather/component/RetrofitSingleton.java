@@ -1,5 +1,7 @@
 package com.kinvn.weather.weather.component;
 
+import android.os.Looper;
+
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import com.kinvn.weather.weather.BuildConfig;
 import com.kinvn.weather.weather.common.C;
@@ -98,16 +100,12 @@ public class RetrofitSingleton {
                 .build();
     }
 
-    private Consumer<Throwable> disposeFailedInfo(Throwable t) {
-        return throwable -> {
-            if (t.toString().contains("GaiException") || t.toString().contains("SocketTimeoutException")
-                    || t.toString().contains("UnknownHostException")) {
-                ToastUtil.showShort(BaseApplication.getAppContext().getString(R.string.network_error));
-            } else if (t.toString().contains(C.STATUS_NO_MORE_REQUESTS) || t.toString().contains(C.STATUS_UNKNOWN_LOCATION)) {
-                ToastUtil.showShort("Error：" + t.getMessage());
-            }
-            Logger.e(t.getMessage());
-        };
+    private static void disposeFailedInfo(Throwable t) {
+        Logger.e(t.toString());
+        if (t.toString().contains("GaiException") || t.toString().contains("SocketTimeoutException")
+                || t.toString().contains("UnknownHostException") || t.toString().contains("HTTP")) {
+            ToastUtil.showShort(BaseApplication.getAppContext().getString(R.string.network_error));
+        }
     }
 
     public Observable<HeWeather> fetchWeatherByLocation(String location) {
@@ -124,10 +122,8 @@ public class RetrofitSingleton {
                     }
                 })
                 .map(weatherAPI -> weatherAPI.getHeWeather6().get(0))
-                .doOnError(this::disposeFailedInfo)
                 .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread(), true);
+                .observeOn(AndroidSchedulers.mainThread(), true)
+                .doOnError(RetrofitSingleton::disposeFailedInfo);
     }
-
-
 }

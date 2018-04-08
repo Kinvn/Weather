@@ -2,6 +2,7 @@ package com.kinvn.weather.weather.module.main;
 
 import com.kinvn.weather.weather.base.BasePresenter;
 import com.kinvn.weather.weather.base.BaseView;
+import com.kinvn.weather.weather.model.HeWeather;
 
 /**
  * Created by Kinvn on 2018/3/30.
@@ -13,6 +14,9 @@ interface MainContract {
     interface View extends BaseView<Presenter> {
         //更新天气图表
         void updateGraphView();
+
+        //更新天气信息
+        void updateWeather(HeWeather weather);
 
     }
 

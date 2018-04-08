@@ -83,16 +83,16 @@ public class MainPresenter implements MainContract.Presenter {
                     Logger.e(throwable.getMessage());
                 })
                 .onErrorReturn(throwable -> {
+                    Logger.e(throwable.getMessage());
                     HeWeather weather = new HeWeather();
-                    weather.setStatus(throwable.getMessage());
+                    weather.setStatus("");
                     return weather;
                 })
                 .doOnNext(weather -> {
                     if (weather.getStatus().equals("ok")) {
                         SharedPreferencesManager.getInstance().setCity(weather.getBasic().getLocation());
                         Logger.d(weather.getHourly().get(0).getTmp());
-                    } else {
-                        ToastUtil.showShort("Error: " + weather.getStatus());
+                        mView.updateWeather(weather);
                     }
                 })
                 .doOnComplete(() -> {

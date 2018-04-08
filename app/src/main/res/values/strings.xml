@@ -3,7 +3,7 @@
     <string name="ok">好的</string>
 
     <!--toast-->
-    <string name="network_error">当前网络不佳</string>
+    <string name="network_error">网络连接错误，请稍后再试</string>
 
     <!--main-->
     <string name="current_city">深圳</string>

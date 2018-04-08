@@ -15,6 +15,7 @@ import com.kinvn.weather.weather.common.C;
 import com.kinvn.weather.weather.R;
 import com.kinvn.weather.weather.common.utils.ToastUtil;
 import com.kinvn.weather.weather.base.BaseActivity;
+import com.kinvn.weather.weather.model.HeWeather;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -69,6 +70,11 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     @Override
     public void updateGraphView() {
 
+    }
+
+    @Override
+    public void updateWeather(HeWeather weather) {
+        mCollapsingToolbarLayout.setTitle(weather.getBasic().getLocation() + weather.getHourly().get(0).getTmp());
     }
 
     @Override
