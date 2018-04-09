@@ -1,8 +1,10 @@
-package com.kinvn.weather.weather.module.main;
+package com.kinvn.weather.weather.modules.main;
 
 import com.kinvn.weather.weather.base.BasePresenter;
 import com.kinvn.weather.weather.base.BaseView;
 import com.kinvn.weather.weather.model.HeWeather;
+
+import java.util.List;
 
 /**
  * Created by Kinvn on 2018/3/30.
@@ -13,7 +15,7 @@ import com.kinvn.weather.weather.model.HeWeather;
 interface MainContract {
     interface View extends BaseView<Presenter> {
         //更新天气图表
-        void updateGraphView();
+        void updateGraphView(List<String> xList, List<Integer> yList);
 
         //更新天气信息
         void updateWeather(HeWeather weather);

@@ -109,6 +109,7 @@ public class RetrofitSingleton {
     }
 
     public Observable<HeWeather> fetchWeatherByLocation(String location) {
+        Logger.d(location);
         return mApiInterface.getWeatherByLocation(location, C.KEY)
                 .flatMap(weatherAPI -> {
                     String status = weatherAPI.getHeWeather6().get(0).getStatus();

@@ -1,4 +1,4 @@
-package com.kinvn.weather.weather.module.main;
+package com.kinvn.weather.weather.modules.main;
 
 import android.content.pm.PackageManager;
 import android.os.Bundle;
@@ -16,6 +16,9 @@ import com.kinvn.weather.weather.R;
 import com.kinvn.weather.weather.common.utils.ToastUtil;
 import com.kinvn.weather.weather.base.BaseActivity;
 import com.kinvn.weather.weather.model.HeWeather;
+import com.kinvn.weather.weather.view.FoldLineView;
+
+import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -31,6 +34,8 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     NavigationView mNavigationView;
     @BindView(R.id.drawer_layout)
     DrawerLayout mDrawerLayout;
+    @BindView(R.id.fold_line_view)
+    FoldLineView mFoldLineView;
 
     private MainContract.Presenter mPresenter;
 
@@ -42,7 +47,6 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
 
         init();
         initDrawer();
-        mCollapsingToolbarLayout.setTitle("深圳");
         imageView.setImageResource(R.mipmap.test);
         mPresenter.checkLocationPermission();
     }
@@ -68,13 +72,15 @@ public class MainActivity extends BaseActivity implements NavigationView.OnNavig
     }
 
     @Override
-    public void updateGraphView() {
-
+    public void updateGraphView(List<String> xList, List<Integer> yList) {
+        mFoldLineView.setXList(xList);
+        mFoldLineView.setYList(yList);
+        mFoldLineView.invalidate();
     }
 
     @Override
     public void updateWeather(HeWeather weather) {
-        mCollapsingToolbarLayout.setTitle(weather.getBasic().getLocation() + weather.getHourly().get(0).getTmp());
+        mCollapsingToolbarLayout.setTitle(weather.getBasic().getLocation() + " " + weather.getHourly().get(0).getTmp() + "℃");
     }
 
     @Override

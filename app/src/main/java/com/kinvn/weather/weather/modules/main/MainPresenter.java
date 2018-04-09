@@ -1,11 +1,10 @@
-package com.kinvn.weather.weather.module.main;
+package com.kinvn.weather.weather.modules.main;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.location.Location;
 import android.location.LocationManager;
-import android.util.Log;
 
 import com.kinvn.weather.weather.common.C;
 import com.kinvn.weather.weather.R;
@@ -14,8 +13,10 @@ import com.kinvn.weather.weather.common.utils.ToastUtil;
 import com.kinvn.weather.weather.common.utils.Util;
 import com.kinvn.weather.weather.component.RetrofitSingleton;
 import com.kinvn.weather.weather.model.HeWeather;
+import com.kinvn.weather.weather.model.HourlyItem;
 import com.orhanobut.logger.Logger;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.disposables.CompositeDisposable;
@@ -68,7 +69,7 @@ public class MainPresenter implements MainContract.Presenter {
             }
         }
         if (bestLocation != null) {
-            queryWeather(String.valueOf(bestLocation.getLongitude()) + String.valueOf(bestLocation.getLatitude()));
+            queryWeather(String.valueOf(bestLocation.getLongitude()) + "," + String.valueOf(bestLocation.getLatitude()));
         } else {
             ToastUtil.showShort(R.string.get_location_failed);
             queryWeather(SharedPreferencesManager.getInstance().getCity());
@@ -79,9 +80,6 @@ public class MainPresenter implements MainContract.Presenter {
     public void queryWeather(String location) {
         RetrofitSingleton.getInstance().fetchWeatherByLocation(location)
                 .doOnSubscribe(disposable -> mDisposables.add(disposable))
-                .doOnError(throwable -> {
-                    Logger.e(throwable.getMessage());
-                })
                 .onErrorReturn(throwable -> {
                     Logger.e(throwable.getMessage());
                     HeWeather weather = new HeWeather();
@@ -93,6 +91,14 @@ public class MainPresenter implements MainContract.Presenter {
                         SharedPreferencesManager.getInstance().setCity(weather.getBasic().getLocation());
                         Logger.d(weather.getHourly().get(0).getTmp());
                         mView.updateWeather(weather);
+                        List<HourlyItem> hourlyItems = weather.getHourly();
+                        List<String> xList = new ArrayList<>();
+                        List<Integer> yList = new ArrayList<>();
+                        for (int i = 0; i < hourlyItems.size(); i++) {
+                            xList.add(hourlyItems.get(i).getTime());
+                            yList.add(Integer.parseInt(hourlyItems.get(i).getTmp()));
+                        }
+                        mView.updateGraphView(xList, yList);
                     }
                 })
                 .doOnComplete(() -> {

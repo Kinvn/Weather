@@ -1,4 +1,4 @@
-package com.kinvn.weather.weather.module.main.fragment;
+package com.kinvn.weather.weather.modules.main.fragment;
 
 /**
  * Created by Kinvn on 2018/3/31.
@@ -6,7 +6,8 @@ package com.kinvn.weather.weather.module.main.fragment;
  * Email:kinvn123@gmail.com
  */
 
-public class LocalPresenter implements LocalConstract.Presenter {
+public class CityPresenter implements CityConstract.Presenter {
+
     @Override
     public void destroy() {
 

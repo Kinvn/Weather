@@ -1,4 +1,4 @@
-package com.kinvn.weather.weather.module.main.fragment;
+package com.kinvn.weather.weather.modules.main.fragment;
 
 import com.kinvn.weather.weather.base.BaseFragment;
 
